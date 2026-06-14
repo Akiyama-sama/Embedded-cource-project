@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ station_label }} 号窗口叫号机{% endblock %}
+{% block heading %}{{ station_label }} 号窗口叫号机{% endblock %}
+
+{% block content %}
+<section class="hero-panel station-panel">
+  <div>
+    <p class="section-label">窗口操作</p>
+    <div class="button-grid">
+      <button class="action-button priority" id="call-next-btn" data-station-id="{{ station_id }}">
+        <span>呼叫下一位</span>
+        <small>按优先级自动取号</small>
+      </button>
+      <button class="action-button secondary" id="repeat-call-btn" data-station-id="{{ station_id }}">
+        <span>重复叫号</span>
+        <small>重播本窗口上一位</small>
+      </button>
+    </div>
+  </div>
+  <aside class="ticket-card">
+    <p class="section-label">当前叫号</p>
+    <strong id="current-ticket-no">--</strong>
+    <span id="current-announcement">等待叫号</span>
+  </aside>
+</section>
+
+<section class="dashboard-grid">
+  <article class="metric">
+    <span>当前日期</span>
+    <strong id="business-date">--</strong>
+  </article>
+  <article class="metric">
+    <span>等待人数</span>
+    <strong id="waiting-count">0</strong>
+  </article>
+  <article class="metric">
+    <span>已叫号</span>
+    <strong id="called-count">0</strong>
+  </article>
+</section>
+
+<section class="list-panel">
+  <div class="list-title">
+    <h2>等待队列</h2>
+    <span>所有窗口实时同步</span>
+  </div>
+  <ol class="ticket-list" id="waiting-list"></ol>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.STATION_ID = "{{ station_id }}";
+</script>
+<script src="/static/call-station.js"></script>
+{% endblock %}

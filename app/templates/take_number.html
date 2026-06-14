@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}客户取号机{% endblock %}
+{% block heading %}客户取号机{% endblock %}
+
+{% block content %}
+<section class="hero-panel">
+  <div>
+    <p class="section-label">请选择业务类型</p>
+    <div class="button-grid">
+      <button class="action-button priority" id="take-vip-btn" data-priority="vip">
+        <span>优先业务</span>
+        <small>VIP / 特殊业务</small>
+      </button>
+      <button class="action-button" id="take-normal-btn" data-priority="normal">
+        <span>普通业务</span>
+        <small>综合柜台业务</small>
+      </button>
+    </div>
+  </div>
+  <aside class="ticket-card">
+    <p class="section-label">最近取号</p>
+    <strong id="last-ticket-no">--</strong>
+    <span id="last-ticket-meta">等待客户取号</span>
+  </aside>
+</section>
+
+<section class="dashboard-grid">
+  <article class="metric">
+    <span>当前日期</span>
+    <strong id="business-date">--</strong>
+  </article>
+  <article class="metric">
+    <span>等待人数</span>
+    <strong id="waiting-count">0</strong>
+  </article>
+  <article class="metric">
+    <span>已叫号</span>
+    <strong id="called-count">0</strong>
+  </article>
+</section>
+
+<section class="list-panel">
+  <div class="list-title">
+    <h2>等待队列</h2>
+    <span>按优先级与等待时间自动排序</span>
+  </div>
+  <ol class="ticket-list" id="waiting-list"></ol>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/take-number.js"></script>
+{% endblock %}
