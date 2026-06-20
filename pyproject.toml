@@ -1,7 +1,7 @@
 [project]
 name = "bank-queue-system"
 version = "0.1.0"
-description = "Bank hall queue calling system for RK3562 embedded Linux boards."
+description = "Bank hall queue calling system with a PC server and TCP/IP browser clients."
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115.0",
